@@ -1,0 +1,896 @@
+$head-color: rgba(33, 45, 50, 1);
+$light-color: rgba(32, 65, 77, 1);
+$h2-color: rgba(50, 80, 91, 1);
+$txt-color: rgba(55, 100, 116, 1);
+$numbers-btn: rgba(56, 206, 168, 1);
+$nav-color: rgba(234, 254, 236, 1);
+$nav2-color: rgba(241, 255, 248, 1);
+$red-color: rgba(246, 42, 42, 1);
+$border: #38cea8;
+$lady-color: rgba(241, 243, 242, 1);
+$some-color: rgba(33, 45, 50, 1);
+$background-input: rgba(240, 233, 233, 1);
+$sometext: #376474;
+$color-title: rgba(255, 255, 255, 1);
+$table-color: rgba(99, 119, 221, 1);
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+#menu__toggle {
+  opacity: 0;
+}
+.menu__btn {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+}
+.menu__btn > span::before {
+  content: "";
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: "";
+  top: 8px;
+}
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 100px;
+  left: -100%;
+  width: 300px;
+  height: 50%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  text-align: center;
+  background-color: #076b74cb;
+  box-shadow: 1px 0px 6px rgba(148, 109, 109, 0.2);
+}
+
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.menu__logo {
+  padding: 10px;
+  font-size: 60px;
+}
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  left: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown {
+  &__dropbtn {
+    color: black;
+    background-color: rgb(241, 255, 248);
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  color: #000;
+}
+a {
+  color: #000;
+}
+.container {
+  max-width: 1920px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.title {
+  font-family: Roboto;
+  font-size: 48px;
+  font-weight: 500;
+  color: $head-color;
+  &--card-block {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    color: $txt-color;
+    margin: 2vw 0 0 0;
+  }
+  &--lady1 {
+    color: $h2-color;
+  }
+  &--lady2 {
+    font-weight: 700;
+    color: $txt-color;
+  }
+  &--number {
+    color: $head-color;
+    font-size: 58px;
+    font-weight: 300;
+  }
+  &--ask {
+    font-size: 24px;
+    color: $head-color;
+  }
+  &--imput-block {
+    font-size: 24px;
+    font-weight: 400;
+    color: $numbers-btn;
+  }
+  &--footer-qualifed {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    color: $light-color;
+  }
+  &--background {
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-title;
+  }
+  &--inner1 {
+    font-size: 12px;
+    font-weight: 400;
+    color: $txt-color;
+  }
+  &--inner2 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #000;
+  }
+  &--footer {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $txt-color;
+  }
+}
+.subtitle {
+  font-family: Robot;
+  font-size: 24px;
+  font-weight: 400;
+  color: $light-color;
+
+  line-height: 32px;
+  color: $txt-color;
+  &--card-block {
+    font-size: 16px;
+    line-height: 24px;
+    color: $sometext;
+    text-align: center;
+  }
+
+  &--ask {
+    color: $light-color;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  &--stories {
+    color: $head-color;
+  }
+  &--imput-block {
+    color: $light-color;
+    font-size: 16px;
+  }
+  &--qualifed {
+    color: $light-color;
+  }
+}
+.text {
+  font-family: Roboto;
+  font-weight: 400;
+  &--lady {
+    font-family: Roboto;
+    line-height: 24px;
+    width: 70%;
+    color: $txt-color;
+  }
+  &--imput-block {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 20px 0;
+    color: $some-color;
+  }
+  &--stories {
+    color: $head-color;
+  }
+  &--footer {
+    font-size: 12px;
+    line-height: 14px;
+    color: $txt-color;
+  }
+  &--card-block {
+    line-height: 24px;
+    color: $sometext;
+    text-align: center;
+    margin: 10px;
+  }
+}
+.btn {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  a {
+    color: #fff;
+  }
+  &--red {
+    background-color: $red-color;
+    padding: 15px 40px;
+    border-radius: 25px;
+    border: none;
+  }
+  &--green {
+    background-color: $numbers-btn;
+    padding: 15px 30px;
+    border-radius: 25px;
+    border: none;
+  }
+  &--subscript {
+    background-color: $numbers-btn;
+    padding: 10px 40px;
+    border-radius: 40px;
+    margin: 10px 0;
+    border: none;
+    a {
+      font-family: Roboto;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+  &--border {
+    border: 2px solid $numbers-btn;
+    background-color: #fff;
+    padding: 10px 25px;
+    border-radius: 30px;
+  }
+  &--background {
+    background-color: $numbers-btn;
+    border: 2px solid $color-title;
+  }
+  &--buy {
+    color: $numbers-btn;
+    border: 2px solid $numbers-btn;
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: #fff;
+    a {
+      color: $numbers-btn;
+    }
+  }
+  &--footer {
+    padding: 5px 30px;
+    border-radius: 20vw;
+    background-color: #fff;
+    border: 2px solid $numbers-btn;
+    a {
+      color: $numbers-btn;
+    }
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vw 5vw;
+  background-color: $nav-color;
+  &__name {
+    display: flex;
+    align-items: center;
+  }
+}
+.picture {
+  display: flex;
+  text-align: center;
+  gap: 20px;
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $nav2-color;
+  padding: 2vw 9vw;
+  flex-wrap: wrap;
+}
+.logo {
+  font-family: Robot;
+  font-size: 24px;
+  font-weight: 400;
+  b {
+    font-weight: 700;
+  }
+}
+.desc {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.list {
+  display: flex;
+  gap: 20px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  &__link {
+    padding: 10px 0;
+  }
+}
+.arrow-menu {
+  width: 0;
+  height: 0;
+  border-top: 10px solid #000;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: relative;
+  top: 7px;
+}
+.lady {
+  height: 550px;
+  background-color: $lady-color;
+  display: grid;
+  background-image: url(./img/07034013-1\ 1.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+
+  &__call-to-action {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+.how-it-works {
+  &__wrapper {
+    display: flex;
+    gap: 20px;
+    padding: 100px 30px;
+  }
+}
+.wrapper {
+  &__title {
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 32px;
+    color: $txt-color;
+  }
+  &__subtitle {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $txt-color;
+  }
+  &__text {
+    margin: 20px 0;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    color: $txt-color;
+    width: 60%;
+  }
+  &__numbers {
+    font-family: Roboto;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: $numbers-btn;
+  }
+}
+.main {
+  &__how-it-works {
+    padding: 5vw 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__btn {
+      border: 2px solid $numbers-btn;
+      padding: 10px 50px;
+      border-radius: 20px;
+    }
+    a {
+      color: $numbers-btn;
+    }
+  }
+  &__reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 100px 30px;
+    border-top: 5px solid $border;
+    border-bottom: 5px solid $border;
+  }
+  &__what-does {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  &__box-asks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    padding: 100px 50px;
+    &__block-wrap {
+      display: flex;
+    }
+  }
+
+  &__qualifed-nutrition {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px 150px;
+  }
+  &__table {
+    border-left: 1px solid $table-color;
+    border-top: 1px solid $table-color;
+  }
+}
+.what-does {
+  background-image: url(./img/background2.png);
+  background-size: 100%;
+  margin: 100px 0;
+  &__wrap {
+    margin: 20px 0;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid $table-color;
+}
+
+.item {
+  text-align: center;
+  padding: 10px 40px;
+  border: 0.5px solid $table-color;
+  &--size {
+    padding: 15px;
+    font-size: 24px;
+  }
+  &--padding {
+    padding: 20px;
+  }
+}
+
+.wrap {
+  &__block-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 50px;
+  }
+}
+
+.about-vagatables {
+  background: url(./img/background.png) no-repeat;
+  height: 600px;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5vw 0 5vw;
+
+  &__card-block {
+    background-color: #fff;
+    color: $sometext;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 3vw 0;
+  }
+}
+.card-block {
+  &__text {
+    width: 60%;
+    margin: 10px 0;
+  }
+  &__img {
+    max-height: 170px;
+    border-radius: 5%;
+  }
+  &:nth-child(2) {
+    margin: 0 20px;
+  }
+  border-bottom: 5px solid $numbers-btn;
+  border-radius: 10px;
+}
+
+.stories {
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  gap: 100px;
+}
+.block {
+  width: 90%;
+  &__title {
+    color: $numbers-btn;
+    font-size: 30px;
+    text-align: center;
+    margin: 10px 0;
+  }
+  &__subtitle {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    color: $head-color;
+    margin: 10px 0;
+  }
+  &__text {
+    font-weight: 400;
+    line-height: 24px;
+
+    color: $head-color;
+    width: 80%;
+  }
+}
+.reviews {
+  &__arrow1 {
+    position: absolute;
+    right: 79px;
+    top: 2850px;
+    margin: 0 auto;
+  }
+  &__arrow2 {
+    position: absolute;
+    left: 79px;
+    top: 2850px;
+    margin: 0 auto;
+  }
+  &__box {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 40px 0;
+  }
+  &__img {
+    border-radius: 50%;
+  }
+}
+.box {
+  &--margin {
+    margin-left: 100px;
+  }
+}
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-family: Roboto;
+  &--padding {
+    font-size: 16px;
+    color: $head-color;
+    text-align: center;
+  }
+  &--padding-main {
+    color: $head-color;
+  }
+}
+.img-star {
+  display: flex;
+  gap: 10px;
+}
+.text-reviews {
+  font-family: Roboto;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 10px 0;
+  width: 70%;
+  color: $head-color;
+}
+
+.name-reviews {
+  b {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  color: $numbers-btn;
+}
+
+.box-asks {
+  &__block-wrap {
+    display: flex;
+    width: 80%;
+    gap: 20px;
+    margin: 20px 0;
+    align-items: flex-start;
+  }
+}
+.input-block {
+  background: url(./img/Mask.png) no-repeat;
+  height: 600px;
+  background-size: 100% 100%;
+  &__email {
+    padding: 10px 80px;
+    border-radius: 30px;
+    background-color: $background-input;
+
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+  }
+  &__main-block {
+    padding: 20px 90px;
+    background-color: #fff;
+    position: relative;
+    width: 368px;
+    top: 150px;
+    left: 169px;
+    border-radius: 10px;
+  }
+  &__span-text {
+    font-family: Roboto;
+    font-size: 9px;
+
+    font-weight: 400;
+  }
+}
+.qualifed-nutrition {
+  &__reviews2 {
+    display: grid;
+    grid-template-columns: repeat(2, 0.7fr);
+  }
+}
+.reviews2 {
+  padding: 50px 0;
+  &__inline-picture {
+    display: flex;
+    gap: 5rem;
+  }
+  &__box2 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 40px 0;
+  }
+  &__wrappers2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__img2 {
+    border-radius: 50%;
+  }
+  &__ceo {
+    color: $head-color;
+    font-family: robot;
+    font-size: 12px;
+    font-weight: 700;
+  }
+}
+.text-reviews2 {
+  font-family: Roboto;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 10px 0;
+  width: 60%;
+  color: $light-color;
+}
+.name-reviews2 {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  color: $numbers-btn;
+}
+.background {
+  background-image: url(./img/Cerulean.png);
+  height: 200px;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  &__btn {
+    padding: 10px 30px;
+    border-radius: 30px;
+  }
+}
+.footer {
+  &__block-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 0;
+  }
+  &__list-wrapper {
+    display: flex;
+  }
+}
+.inner {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 20%;
+  align-items: flex-start;
+  gap: 20px;
+}
+.list-about {
+  display: flex;
+  gap: 10px;
+  padding: 0 20px;
+  flex-direction: column;
+  &__item {
+    margin: 10px 0;
+  }
+}
+
+@media screen and(max-width:1200px) {
+  .stories__img {
+    width: 250px;
+  }
+  .card-block__img {
+    width: 200px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 750px;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .what-does {
+    display: none;
+  }
+  .grid {
+    display: none;
+  }
+  .lady {
+    display: none;
+  }
+  img {
+    display: none;
+  }
+  .about-vagatables {
+    display: none;
+  }
+  header {
+    display: none;
+  }
+}
+.list-footer {
+  color: $head-color;
+  font-weight: 400;
+  font-family: roboto;
+}
+@media screen and (max-width: 1000px) {
+  .reviews {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+  }
+  .reviews2 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .wrap {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 600px) {
+  .hamburger-menu {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .how-it-works__wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .box--margin {
+    margin: 50px 0;
+  }
+
+  .main__box-asks {
+    grid-template-columns: 1fr;
+  }
+
+  .input-block__main-block {
+    padding: 0;
+    left: 0;
+    width: 360px;
+  }
+  .main__qualifed-nutrition {
+    padding: 0;
+  }
+  .inner {
+    display: none;
+  }
+}
+@media screen and(max-width:800px) {
+  .main-block {
+    left: 0;
+  }
+  .box--margin {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .reviews__arrow2 {
+    top: 3000px;
+  }
+  .reviews__arrow1 {
+    top: 3000px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .reviews__arrow2 {
+    display: none;
+  }
+  .reviews__arrow1 {
+    display: none;
+  }
+}
